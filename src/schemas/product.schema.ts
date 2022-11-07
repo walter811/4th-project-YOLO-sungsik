@@ -9,15 +9,15 @@ interface Image {
 
 interface Option {
   name: string;
+  price: number;
   quantity: number;
 }
 
 interface Product {
   name: string;
-  price: number;
   description: string;
   shippingInfo: string;
-  seller: Types.ObjectId;
+  sellerId: Types.ObjectId;
   option: [];
   image: [];
   orderDeadline: Timestamp;
@@ -31,15 +31,15 @@ const imageSchema = new Schema<Image>({
 
 const optionSchema = new Schema<Option>({
   name: { type: String, required: true },
+  price: { type: Number, required: true },
   quantity: { type: Number, required: true },
 });
 
 const productSchema = new Schema<Product>({
   name: { type: String, required: true },
-  price: { type: Number, required: true },
   description: { type: String, required: true },
   shippingInfo: { type: String, required: true },
-  seller: { type: Schema.Types.ObjectId, required: true, ref: "User" },
+  sellerId: { type: Schema.Types.ObjectId, required: true, ref: "User" },
   option: [optionSchema],
   image: [imageSchema],
   orderDeadline: { type: Timestamp, required: true },
