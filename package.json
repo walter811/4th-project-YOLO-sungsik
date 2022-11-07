@@ -1,0 +1,39 @@
+{
+  "name": "4th-project-yolo-sungsik",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walter811/4th-project-YOLO-sungsik.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walter811/4th-project-YOLO-sungsik/issues"
+  },
+  "homepage": "https://github.com/walter811/4th-project-YOLO-sungsik#readme",
+  "dependencies": {
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.11.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^4.11.0",
+    "mongoose": "^6.7.1",
+    "morgan": "^1.10.0",
+    "nunjucks": "^3.2.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "@types/morgan": "^1.9.3"
+  }
+}
