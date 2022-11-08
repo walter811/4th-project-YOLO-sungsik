@@ -20,7 +20,8 @@ interface Product {
   sellerId: Types.ObjectId;
   option: [];
   image: [];
-  orderDeadline: Timestamp;
+  orderDeadline: Date;
+  deletedAt: Date;
 }
 
 const imageSchema = new Schema<Image>({
@@ -42,7 +43,8 @@ const productSchema = new Schema<Product>({
   sellerId: { type: Schema.Types.ObjectId, required: true, ref: "User" },
   option: [optionSchema],
   image: [imageSchema],
-  orderDeadline: { type: Timestamp, required: true },
+  orderDeadline: { type: Date, required: true },
+  deletedAt: { type: Date, default: null },
 });
 productSchema.set("timestamps", true);
 const Product = model<Product>("User", productSchema);
