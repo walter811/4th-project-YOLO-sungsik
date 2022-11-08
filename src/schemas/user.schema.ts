@@ -1,9 +1,8 @@
-import { Timestamp } from "mongodb";
-import { model, Schema, Types } from "mongoose";
+import { model, Schema } from "mongoose";
 
 interface Seller {
   sellerName: string;
-  account: number;
+  account: string;
 }
 
 interface User {
@@ -12,13 +11,13 @@ interface User {
   password: string;
   phoneNumber: string;
   nationality: string;
-  seller?: {};
+  seller: Seller;
   deletedAt: Date;
 }
 
 const sellerSchema = new Schema<Seller>({
-  sellerName: { type: String, required: false },
-  account: { type: Number, required: false },
+  sellerName: String,
+  account: String,
 });
 
 const userSchema = new Schema<User>({
