@@ -1,5 +1,5 @@
 import { Timestamp } from "mongodb";
-import { model, Schema } from "mongoose";
+import { model, Schema, Types } from "mongoose";
 
 interface Seller {
   sellerName: string;
@@ -10,10 +10,10 @@ interface User {
   name: string;
   email: string;
   password: string;
-  phoneNumber: number;
+  phoneNumber: string;
   nationality: string;
   seller?: {};
-  deletedAt: Timestamp;
+  deletedAt: Date;
 }
 
 const sellerSchema = new Schema<Seller>({
@@ -25,10 +25,10 @@ const userSchema = new Schema<User>({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  phoneNumber: { type: Number, required: true },
+  phoneNumber: { type: String, required: true },
   nationality: { type: String, required: true },
   seller: sellerSchema,
-  deletedAt: { type: Timestamp, default: null },
+  deletedAt: { type: Date, default: null },
 });
 userSchema.set("timestamps", true);
 const User = model<User>("User", userSchema);

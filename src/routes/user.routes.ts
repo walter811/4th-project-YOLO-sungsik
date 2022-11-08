@@ -4,6 +4,6 @@ import { asyncWrap } from "../middlewares/errorHandler.middlewares";
 
 const userRouter = express.Router();
 
-userRouter.post("/signin", asyncWrap(userContoller.signIn));
+userRouter.post("/signup", asyncWrap(userContoller.signUp));
 
 export { userRouter };
