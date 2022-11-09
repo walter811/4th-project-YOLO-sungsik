@@ -1,5 +1,5 @@
 import { SellerDto, SignInDto, SignUpDto, UpdateDto } from "../dto/user.dto";
-import { User } from "../schemas/user.schema";
+import User from "../schemas/user.schema";
 import { ErrorConstructor as error } from "../middlewares/errorConstructor.middleware";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -76,7 +76,7 @@ const registerSeller = async (email: string, data: SellerDto) => {
     { email: email },
     {
       $set: {
-        seller: { sellerName: data.sellerName, account: data.account },
+        seller: { name: data.name, account: data.account },
       },
     }
   );

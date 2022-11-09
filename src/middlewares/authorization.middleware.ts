@@ -4,13 +4,13 @@ import { getUser } from "../services/user.service";
 import jwt from "jsonwebtoken";
 
 const loginRequired: RequestHandler = async (req, res, next) => {
-  const accessToken = req.headers.authorization;
+  const accessToken: string = req.headers.authorization as string;
 
   if (!accessToken) {
     throw new error("NEED_ACCESS_TOKEN", 400);
   }
 
-  const payload = jwt.verify(
+  const payload: jwt.JwtPayload = jwt.verify(
     accessToken,
     process.env.JWT_SECRET as string
   ) as jwt.JwtPayload;

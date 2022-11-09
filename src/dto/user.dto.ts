@@ -19,6 +19,6 @@ export interface UpdateDto {
 }
 
 export interface SellerDto {
-  sellerName: string;
+  name: string;
   account: string;
 }

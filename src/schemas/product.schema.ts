@@ -1,11 +1,4 @@
-import { Timestamp } from "mongodb";
-import { model, Schema, Types } from "mongoose";
-
-interface Image {
-  id: string;
-  name: string;
-  url: string;
-}
+import { model, models, Schema, Types } from "mongoose";
 
 interface Option {
   name: string;
@@ -17,18 +10,13 @@ interface Product {
   name: string;
   description: string;
   shippingInfo: string;
-  sellerId: Types.ObjectId;
+  seller: Types.ObjectId;
   option: [];
-  image: [];
+  image: string;
+  category: Types.ObjectId;
   orderDeadline: Date;
   deletedAt: Date;
 }
-
-const imageSchema = new Schema<Image>({
-  id: { type: String, required: true, unique: true },
-  name: { type: String, required: true },
-  url: { type: String, required: true },
-});
 
 const optionSchema = new Schema<Option>({
   name: { type: String, required: true },
@@ -40,13 +28,13 @@ const productSchema = new Schema<Product>({
   name: { type: String, required: true },
   description: { type: String, required: true },
   shippingInfo: { type: String, required: true },
-  sellerId: { type: Schema.Types.ObjectId, required: true, ref: "User" },
+  seller: { type: Schema.Types.ObjectId, required: true, ref: "User" },
   option: [optionSchema],
-  image: [imageSchema],
+  image: { type: String, required: true },
+  category: { type: Schema.Types.ObjectId, required: true, ref: "Market" },
   orderDeadline: { type: Date, required: true },
   deletedAt: { type: Date, default: null },
 });
 productSchema.set("timestamps", true);
-const Product = model<Product>("User", productSchema);
 
-export { Product };
+export default models.Product || model<Product>("Product", productSchema);
