@@ -6,6 +6,7 @@ interface OptionDto {
 
 interface AddProductDto {
   name: string;
+  purchaseNation: string;
   description: string;
   shippingInfo: string;
   option: OptionDto[];

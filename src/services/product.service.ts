@@ -10,6 +10,7 @@ const getProductById = async (id: string) => {
 const addProduct = async (userId: string, data: AddProductDto) => {
   return await Product.create({
     name: data.name,
+    purchaseNation: data.purchaseNation,
     description: data.description,
     shippingInfo: data.shippingInfo,
     seller: userId,
@@ -34,6 +35,7 @@ const updateProduct = async (
     {
       $set: {
         name: data.name,
+        purchaseNation: data.purchaseNation,
         description: data.description,
         shippingInfo: data.shippingInfo,
         seller: userId,
