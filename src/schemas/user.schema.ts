@@ -1,26 +1,26 @@
-import { model, models, Schema } from "mongoose";
+import mongoose, { model, models, Schema, Types } from "mongoose";
 
-interface Seller {
+export interface ISeller {
   name: string;
   account: string;
 }
 
-interface User {
+export interface IUser {
   name: string;
   email: string;
   password: string;
   phoneNumber: string;
   nationality: string;
-  seller: Seller;
+  seller: ISeller;
   deletedAt: Date;
 }
 
-const sellerSchema = new Schema<Seller>({
+export const sellerSchema = new Schema<ISeller>({
   name: String,
   account: String,
 });
 
-const userSchema = new Schema<User>({
+export const userSchema = new Schema<IUser>({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -31,4 +31,5 @@ const userSchema = new Schema<User>({
 });
 userSchema.set("timestamps", true);
 
-export default models.User || model<User>("User", userSchema);
+const User = mongoose.model<IUser>("User", userSchema);
+export default User;

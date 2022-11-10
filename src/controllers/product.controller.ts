@@ -1,12 +1,11 @@
 import { RequestHandler } from "express";
 import { AddProductDto } from "../dto/product.dto";
-import { SellerDto } from "../dto/user.dto";
 import { ErrorConstructor as error } from "../middlewares/errorConstructor.middleware";
 import * as productService from "../services/product.service";
 
 const addProduct: RequestHandler = async (req, res) => {
-  const userId: string = req.user?.id;
-  const seller: SellerDto = req.user?.seller;
+  const userId = req.user?.id as string;
+  const seller = req.user?.seller;
   const data: AddProductDto = req.body;
   if (!seller) {
     throw new error("NEED_SELLER_REGISTRATION", 400);
@@ -19,7 +18,7 @@ const addProduct: RequestHandler = async (req, res) => {
 };
 
 const updateProduct: RequestHandler = async (req, res) => {
-  const userId: string = req.user?.id;
+  const userId = req.user?.id as string;
   const productId: string = req.query.productId as string;
   const data: AddProductDto = req.body;
   if (!data) {

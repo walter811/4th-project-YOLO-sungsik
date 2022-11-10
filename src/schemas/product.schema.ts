@@ -1,13 +1,14 @@
-import { model, models, Schema, Types } from "mongoose";
+import mongoose, { model, models, Schema, Types } from "mongoose";
 
-interface Option {
+export interface Option {
   name: string;
   price: number;
   quantity: number;
 }
 
-interface Product {
+export interface Product {
   name: string;
+  purchaseNation: string;
   description: string;
   shippingInfo: string;
   seller: Types.ObjectId;
@@ -18,14 +19,15 @@ interface Product {
   deletedAt: Date;
 }
 
-const optionSchema = new Schema<Option>({
+export const optionSchema = new Schema<Option>({
   name: { type: String, required: true },
   price: { type: Number, required: true },
   quantity: { type: Number, required: true },
 });
 
-const productSchema = new Schema<Product>({
+export const productSchema = new Schema<Product>({
   name: { type: String, required: true },
+  purchaseNation: { type: String, required: true },
   description: { type: String, required: true },
   shippingInfo: { type: String, required: true },
   seller: { type: Schema.Types.ObjectId, required: true, ref: "User" },
@@ -37,4 +39,5 @@ const productSchema = new Schema<Product>({
 });
 productSchema.set("timestamps", true);
 
-export default models.Product || model<Product>("Product", productSchema);
+const Product = mongoose.model<Product>("Product", productSchema);
+export default Product;
