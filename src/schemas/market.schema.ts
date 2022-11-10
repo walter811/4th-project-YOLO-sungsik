@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, models, Schema } from "mongoose";
 
 interface Market {
   mainCategory: string;
@@ -7,8 +7,7 @@ interface Market {
 
 const marketSchema = new Schema<Market>({
   mainCategory: { type: String, required: true, unique: true },
-  subCategory: { type: String, required: true, unique: false },
+  subCategory: { type: String, required: true, unique: true },
 });
-const Market = model<Market>("Market", marketSchema);
 
-export { Market };
+export default models.Market || model<Market>("Market", marketSchema);

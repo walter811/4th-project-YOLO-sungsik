@@ -1,7 +1,7 @@
-import { model, Schema } from "mongoose";
+import { model, models, Schema } from "mongoose";
 
 interface Seller {
-  sellerName: string;
+  name: string;
   account: string;
 }
 
@@ -16,7 +16,7 @@ interface User {
 }
 
 const sellerSchema = new Schema<Seller>({
-  sellerName: String,
+  name: String,
   account: String,
 });
 
@@ -30,6 +30,5 @@ const userSchema = new Schema<User>({
   deletedAt: { type: Date, default: null },
 });
 userSchema.set("timestamps", true);
-const User = model<User>("User", userSchema);
 
-export { User };
+export default models.User || model<User>("User", userSchema);
