@@ -31,7 +31,7 @@ const updateProduct = async (
     throw new error("INVALID_PRODUCT", 404);
   }
   return await Product.findOneAndUpdate(
-    { id: productId, seller: userId },
+    { id: productId, seller: userId, deletedAt: null },
     {
       $set: {
         name: data.name,
@@ -55,7 +55,7 @@ const deleteProduct = async (productId: string) => {
   }
   const now = new Date();
   return await Product.findOneAndUpdate(
-    { id: productId },
+    { id: productId, deletedAt: null },
     { $set: { deletedAt: now } }
   );
 };
