@@ -1,14 +1,14 @@
-import mongoose, { model, models, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-export interface Market {
+export interface IMarket {
   mainCategory: string;
   subCategory: string;
 }
 
-export const marketSchema = new Schema<Market>({
-  mainCategory: { type: String, required: true, unique: true },
-  subCategory: { type: String, required: true, unique: true },
+export const marketSchema = new Schema<IMarket>({
+  mainCategory: { type: String, required: true },
+  subCategory: { type: String, required: true },
 });
 
-const Market = mongoose.model<Market>("Market", marketSchema);
+const Market = mongoose.model<IMarket>("Market", marketSchema);
 export default Market;
