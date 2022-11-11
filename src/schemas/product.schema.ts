@@ -1,12 +1,12 @@
 import mongoose, { model, models, Schema, Types } from "mongoose";
 
-export interface Option {
+export interface IOption {
   name: string;
   price: number;
   quantity: number;
 }
 
-export interface Product {
+export interface IProduct {
   name: string;
   purchaseNation: string;
   description: string;
@@ -19,13 +19,13 @@ export interface Product {
   deletedAt: Date;
 }
 
-export const optionSchema = new Schema<Option>({
+export const optionSchema = new Schema<IOption>({
   name: { type: String, required: true },
   price: { type: Number, required: true },
   quantity: { type: Number, required: true },
 });
 
-export const productSchema = new Schema<Product>({
+export const productSchema = new Schema<IProduct>({
   name: { type: String, required: true },
   purchaseNation: { type: String, required: true },
   description: { type: String, required: true },
@@ -39,5 +39,5 @@ export const productSchema = new Schema<Product>({
 });
 productSchema.set("timestamps", true);
 
-const Product = mongoose.model<Product>("Product", productSchema);
+const Product = mongoose.model<IProduct>("Product", productSchema);
 export default Product;

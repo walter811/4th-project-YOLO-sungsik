@@ -56,7 +56,7 @@ const getProductByCategory = async (
       return result;
     } else {
       const rawData = await Product.find({
-        purchaseNation: { $in: { purchaseNation } },
+        purchaseNation: { $in: purchaseNation },
         deletedAt: null,
       })
         .populate({
@@ -72,12 +72,14 @@ const getProductByCategory = async (
         .sort({ [sortBy]: sortBy === "createdAt" ? -1 : 1 })
         .limit(60)
         .skip(skip);
+      console.log(rawData);
       let result = [];
       for (let i in rawData) {
         if (rawData[i].category !== null) {
           result.push(rawData[i]);
         }
       }
+      return result;
     }
   }
 };

@@ -22,7 +22,7 @@ const getProductByCategory: RequestHandler = async (req, res) => {
     .purchaseNation as string;
   const sortBy: string = req.query.sortBy as string;
   const skip: string = req.query.skip as string;
-  if (!mainCategory && subCategory && purchaseNation) {
+  if (!mainCategory && !subCategory && !purchaseNation) {
     throw new error("KEY_ERROR", 400);
   }
   if (!sortBy || !skip) {
