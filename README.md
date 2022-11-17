@@ -33,7 +33,7 @@
 
 <!-- ABOUT THE PROJECT -->
 
-# [프리온보딩] 띵스플로우 백엔드 API 개발 프로젝트
+# [프리온보딩] 와이오엘오 백엔드 API 개발 프로젝트
 
 ## About The Project
 
@@ -41,15 +41,13 @@
 
 #### 서비스 개요
 
-    - 게시글 CRUD, 현재 날씨 R 기능을 포함한 백엔드 API를 개발하는 개인 프로젝트
+    - Croket 서비스를 벤치마킹해 커머스 사이트의 백엔드 API를 구현하는 프로젝트
 
 - 개발 조건
-  - database 는 RDB 사용
+  - database 는 NoSQL 사용
   - 규격에 맞게 개발
-  - API 명세서 작성
-  - 커서 페이지네이션 구현
+  - 
   - 현재 날씨는 외부 API 사용
-
 </br>
 
 - 책임
@@ -101,26 +99,34 @@ users
 ## Getting Started
 
 ```
-── app.module.ts
-├── boards
-│   ├── boards.controller.spec.ts
-│   ├── boards.controller.ts
-│   ├── boards.module.ts
-│   ├── boards.service.spec.ts
-│   ├── boards.service.ts
-│   └── dto
-│       └── createPost.request.dto.ts
-├── entities
-│   ├── Boards.ts
-│   └── Users.ts
-├── http-exception.filter.ts
-├── main.ts
-└── weather
-    ├── weather.controller.spec.ts
-    ├── weather.controller.ts
-    ├── weather.module.ts
-    ├── weather.service.spec.ts
-    └── weather.service.ts
+├── app.ts
+├── controllers
+│   ├── market.controller.ts
+│   ├── product.controller.ts
+│   └── user.controller.ts
+├── custometypes
+│   └── express.d.ts
+├── dto
+│   ├── product.dto.ts
+│   └── user.dto.ts
+├── middlewares
+│   ├── authorization.middleware.ts
+│   ├── errorConstructor.middleware.ts
+│   └── errorHandler.middlewares.ts
+├── routes
+│   ├── index.routes.ts
+│   ├── market.routes.ts
+│   ├── product.routes.ts
+│   └── user.routes.ts
+├── schemas
+│   ├── index.schema.ts
+│   ├── market.schema.ts
+│   ├── product.schema.ts
+│   └── user.schema.ts
+└── services
+    ├── market.service.ts
+    ├── product.service.ts
+    └── user.service.ts
 ```
 
 </br>
