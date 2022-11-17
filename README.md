@@ -46,7 +46,7 @@
 - 개발 조건
   - database 는 NoSQL 사용
   - 규격에 맞게 개발
-  - 
+  - RESTful API 구현
   - 현재 날씨는 외부 API 사용
 </br>
 
@@ -54,7 +54,7 @@
 
 | 김성식                                                                                                           |
 | ---------------------------------------------------------------------------------------------------------------- |
-| 게시물 리스트 가져오기</br>특정 게시물 정보 가져오기</br>게시물 생성하기</br>특정 게시물 수정하기<br>특정 게시물 |
+| 유저 CRUD</br>상품 CRUD |
 
 </br>
 
@@ -151,12 +151,19 @@ users</br>
 
 | METHOD | URL | 사용예시 | request | response |
 | ------ | --- | -------- | ------- | -------- |
-| GET | /api/boards/all | /api/boards/all | none | [{</br>id: number,</br>title: string,</br>content: string,</br>password: string,</br>weather: string,</br>createdAt: Date,</br>updatedAt: Date,</br>deletedAt: Date</br>}] |
-| GET | /api/boards/all/:postId | /api/boards/all/1 | none | [{</br>id: number,</br>title: string,</br>content: string,</br>password: string,</br>weather: string,</br>createdAt: Date,</br>updatedAt: Date,</br>deletedAt: Date</br>}] |
-| GET | /api/boards/detail/:postId | /api/boards/detail/1 | none | {</br>id: number,</br>title: string,</br>content: string,</br>password: string,</br>weather: string,</br>createdAt: Date,</br>updatedAt: Date,</br>deletedAt: Date</br>} | 
-| POST | /api/boards/:userId | /api/boards/1 | {</br>userId: number,</br>title: string,</br>content: string,</br>password: string</br>} | 200 |
-| PATCH | api/boards/:postId | /api/boards/1 |  {</br>userId: number,</br>title: string,</br>content: string,</br>password: string</br>} | 204 |
-| DELETE | /api/boards/postId | /api/boards/1$password=? | none | 204 |
+| POST | /api/user/signup | /api/user/signup | {</br>name: string,</br>email: string,</br>password: string,</br>phoneNumber: string,</br>nationality: string</br>} | {message: 'User created'} |
+| POST | /api/user/signin | /api/user/signin | {</br>email: string,</br>password: string</br>} | {accessToken: 'token'} |
+| PATCH | /api/user/update | /api/user/update | {</br>name: string,</br>password: string,</br>phoneNumber: string,</br>nationality: string</br>} | none |
+| PATCH | /api/user/seller | /api/user/seller | {</br>name: string,</br>account: string</br>} | none |
+| DELETE | /api/user | /api/user | none | none |
+| GET | /api/market | /api/market?sortBy=&skip= | none | {</br>name: string,</br>purchaseNation: string,</br>description: string,</br>shippingInfo: string,</br>seller: ObjectId,</br>Option: [{name: string,{</br>price: number,{</br>quantity: number}],</br>image: string,</br>category: ObjectId,</br>orderDeadline: Date,</br>deletedAt: Date</br>} |
+| GET | /api/market/category | /api/market/category?mainCategory=&subCategory=&purchaseNation=&sortBy=&skip= | none | 〃 |
+| GET | /api/market/search | /api/market/search?search=&sortBy=&skip= | none | 〃 |
+| GET | /api/market/:productId | /api/market/1 | none | 〃 |
+| POST | /api/product | /api/product | {</br>name: string,{</br>purchaseNation: string,{</br>description: string,{</br>shippingInfo: string{</br>option: {[name: string,{</br>price: number,{</br>quantity: number{</br>}],{</br>image: string,{</br>category: string,{</br>orderDeadline: Date{</br>} | {message: 'Product registered'} |
+| PATCH | /api/product | /api/product?productId= |  {</br>name: string,{</br>purchaseNation: string,{</br>description: string,{</br>shippingInfo: string{</br>option: {[name: string,{</br>price: number,{</br>quantity: number{</br>}],{</br>image: string,{</br>category: string,{</br>orderDeadline: Date{</br>} | none |
+| DELETE | /api/product | /api/product?productId= | none | none |
+
 
 
 
@@ -168,6 +175,6 @@ users</br>
 
 #### 구현 목표
 
-- [x] 게시글 CRUD 기능 구현
-- [x] 현재 날씨 가져오기 기능 구현
-  - [x] unit test
+- [x] 유저 CRUD 기능 구현
+- [x] 상품 CRUD 기능 구현
+  - [] unit test
