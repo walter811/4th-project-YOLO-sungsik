@@ -47,7 +47,8 @@
   - database 는 NoSQL 사용
   - 규격에 맞게 개발
   - RESTful API 구현
-  - 현재 날씨는 외부 API 사용
+  - TypeORM 사용 금지
+  - 총 3개의 Collection만 사용할 것
 </br>
 
 - 책임
