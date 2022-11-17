@@ -62,19 +62,27 @@
 
 - 개발 우선순위
   1. 완성: 일정 준수 / API 정상 작동 / 코딩 컨벤션 / 코드패키지 구조
-     1. 2022.11.4.금요일 23:59 까지 API 완성
-     2. API 정상 작동 테스트: 토요일 17:00-24:00 까지
-     3. 토요일 내로 README 작성
+     1. 2022.11.10.목요일 23:59 까지 API 완성
+     2. API 정상 작동 테스트: 금요일 17:00-24:00 까지
+     3. 금요일 내로 README 작성
   2. 추가 구현: 자세한 내용은 아래에 있음
-     1. 금요일 이후에 구현
+     1. 목요일 이후에 구현
 - 추가 구현 목표
   - Unit test
 
 </br>
 
-### ERD
+### SCHEMA
 
-<img width="880" alt="ERD" src="https://user-images.githubusercontent.com/104759273/200097750-d6d99871-00be-4a5d-bc8e-119aab511c05.png">
+markets
+<img width="880" alt="markets" src="https://user-images.githubusercontent.com/104759273/202369095-002b3c83-18c8-4c00-8ab5-cb3863fdf02a.png">
+
+products
+<img width="880" alt="products" src="https://user-images.githubusercontent.com/104759273/202369344-49f0ac41-cc9e-4921-9bec-04946a3fcf4a.png">
+
+users
+<img width="880" alt="users" src="https://user-images.githubusercontent.com/104759273/202369406-e8a1328b-5dae-437d-a677-16c6a6c32ac7.png">
+
 
 </br>
 
@@ -82,10 +90,9 @@
 
 - JavaScript
 - TypeScript
-- NestJS
-- TypeORM
+- MongoDB
+- mongoose
 - Jest
-- Swagger
 
 </br>
 
@@ -122,7 +129,7 @@
 
 - 프로젝트 셋업(Git repository & Server 초기세팅)
   - server 셋팅
-    - TypORM 을 사용함
+    - MongoDB 및 Mongoose 를 사용함
   - Git repo
     - 짧은 프로젝트 기간을 고려해 git flow 는 단순화했음: main-feature branch
     - git 컨벤션: [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/)
