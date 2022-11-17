@@ -72,15 +72,16 @@
 
 ### SCHEMA
 
-markets
-<img width="880" alt="markets" src="https://user-images.githubusercontent.com/104759273/202369095-002b3c83-18c8-4c00-8ab5-cb3863fdf02a.png">
+markets</br>
+<img width="600" alt="markets" src="https://user-images.githubusercontent.com/104759273/202369095-002b3c83-18c8-4c00-8ab5-cb3863fdf02a.png">
+</br>
 
-products
-<img width="880" alt="products" src="https://user-images.githubusercontent.com/104759273/202369344-49f0ac41-cc9e-4921-9bec-04946a3fcf4a.png">
-
-users
-<img width="880" alt="users" src="https://user-images.githubusercontent.com/104759273/202369406-e8a1328b-5dae-437d-a677-16c6a6c32ac7.png">
-
+products</br>
+<img width="600" alt="products" src="https://user-images.githubusercontent.com/104759273/202369344-49f0ac41-cc9e-4921-9bec-04946a3fcf4a.png">
+</br>
+users</br>
+<img width="600" alt="users" src="https://user-images.githubusercontent.com/104759273/202369406-e8a1328b-5dae-437d-a677-16c6a6c32ac7.png">
+</br>
 
 </br>
 
