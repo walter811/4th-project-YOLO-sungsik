@@ -159,7 +159,7 @@ users</br>
 | PATCH | /api/user/seller | /api/user/seller | {</br>name: string,</br>account: string</br>} | none |
 | DELETE | /api/user | /api/user | none | none |
 | GET | /api/market | /api/market?sortBy=&skip= | none | {</br>name: string,</br>purchaseNation: string,</br>description: string,</br>shippingInfo: string,</br>seller: ObjectId,</br>Option: [{name: string,{</br>price: number,{</br>quantity: number}],</br>image: string,</br>category: ObjectId,</br>orderDeadline: Date,</br>deletedAt: Date</br>} |
-| GET | /api/market/category | /api/market/category?mainCategory=&subCategory=&purchaseNation=&sortBy=&skip= | none | 〃 |
+| GET | /api/market/category | /api/market/category</br>?mainCategory=&subCategory=&purchaseNation=&sortBy=&skip= | none | 〃 |
 | GET | /api/market/search | /api/market/search?search=&sortBy=&skip= | none | 〃 |
 | GET | /api/market/:productId | /api/market/1 | none | 〃 |
 | POST | /api/product | /api/product | {</br>name: string,{</br>purchaseNation: string,{</br>description: string,{</br>shippingInfo: string{</br>option: {[name: string,{</br>price: number,{</br>quantity: number{</br>}],{</br>image: string,{</br>category: string,{</br>orderDeadline: Date{</br>} | {message: 'Product registered'} |
