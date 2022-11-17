@@ -92,6 +92,7 @@ users</br>
 - TypeScript
 - MongoDB
 - mongoose
+- bcrypt
 - Jest
 
 </br>
